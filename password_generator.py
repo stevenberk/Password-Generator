@@ -79,13 +79,21 @@ def run_password_generator():
         59: "7",
         60: "8",
         61: "9",
-        62: "0"
+        62: "0",
+        63: "!",
+        64: "$",
+        65: "%",
+        66: "#",
+        67: "*",
+        68: "?",
+        69: "@",
+        70: "^"
     }   
 
     new_password = ""
 
     for x in range(0, password_length):
-        new_password+=letters[randint(1, 62)]
+        new_password+=letters[randint(1, 70)]
     
 
     print new_password
