@@ -8,7 +8,7 @@ def run_password_generator():
 
     from random import randint
 
-    letters = {
+    all_characters = {
         1: "a",
         2: "b",
         3: "c",
@@ -84,7 +84,7 @@ def run_password_generator():
     new_password = ""
 
     for x in range(0, password_length):
-        new_password+=letters[randint(1, 70)]
+        new_password+=all_characters[randint(1, 70)]
     
 
     print new_password
