@@ -1,17 +1,29 @@
+keep_running = True
 def run_password_generator():
     password_length = int(raw_input('How long does your password need to be? Enter a number between 8 and 30: '))
-    if password_length > 7 and password_length < 31:
-        print str(password_length) + " is good"
-    else: 
+    if password_length < 7 or password_length > 31:
         print 'invalid entry'
+        run_password_generator()
+    else:
+
+        # number_of_lower_case_letters = int(raw_input("How many lowercase letters should there be? Enter a number between 0 and %s: " %(password_length)))
+        # if number_of_lower_case_letters > password_length:
+        #     print "invalid"
+
+        # number_of_upper_case_letters = int(raw_input("How many uppercase letters should there be? Enter a number between 0 and %s: " %(password_length - number_of_lower_case_letters)))
+
+        # number_of_numbers = int(raw_input("How many numerical characters should there be? Enter a number between 0 and %s: " %(password_length - number_of_lower_case_letters - number_of_upper_case_letters)))
+
+        # number_of_special_charactesr = int(raw_input("How many numerical characters should there be? Enter a number between 0 and %s: " %(password_length - number_of_lower_case_letters - number_of_upper_case_letters)))
 
 
-    from random import randint
 
-    all_characters = {
+        from random import randint
+
+        all_characters = {
         1: "a",
         2: "b",
-        3: "c",
+        3: "c", 
         4: "d",
         5: "e",
         6: "f",
@@ -79,9 +91,9 @@ def run_password_generator():
         68: "?",
         69: "@",
         70: "^"
-    }   
+        }   
 
-    lower_case_letters = {
+        lower_case_letters = {
         1: "a",
         2: "b",
         3: "c",
@@ -108,9 +120,9 @@ def run_password_generator():
         24: "x",
         25: "y",
         26: "z"
-    }
+        }
 
-    numerical_digits = {
+        numerical_digits = {
         1: "1",
         2: "2",
         3: "3",
@@ -121,9 +133,9 @@ def run_password_generator():
         8: "8",
         9: "9",
         10: "0"
-    }
+        }
 
-    special_characters = {
+        special_characters = {
         1: "!",
         2: "@",
         3: "#",
@@ -134,13 +146,15 @@ def run_password_generator():
         8: "*",
         9: "?",
         10: "."
-    }
+        }
 
-    new_password = ""
+        new_password = ""
 
-    for x in range(0, password_length):
-        new_password+=all_characters[randint(1, 70)]
+        for x in range(0, password_length):
+            new_password+=all_characters[randint(1, 70)]
     
 
-    print new_password
-run_password_generator()
+        print "Your password recommendation is:\n" + new_password
+        print "Thank you for using the password generator"
+while keep_running:
+    keep_running = run_password_generator()
