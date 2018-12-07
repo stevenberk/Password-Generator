@@ -43,13 +43,50 @@ def run_password_generator():
         23: "w",
         24: "x",
         25: "y",
-        26: "z"
+        26: "z",
+        27: "A",
+        28: "B",
+        29: "C",
+        30: "D",
+        31: "E",
+        32: "F",
+        33: "G",
+        34: "H",
+        35: "I",
+        36: "J",
+        37: "K",
+        38: "L",
+        39: "M",
+        40: "N",
+        41: "O",
+        42: "P",
+        43: "Q",
+        44: "R",
+        45: "S",
+        46: "T",
+        47: "U",
+        48: "V",
+        49: "W",
+        50: "X",
+        51: "Y",
+        52: "Z",
+        53: "1",
+        54: "2",
+        55: "3",
+        56: "4",
+        57: "5",
+        58: "6",
+        59: "7",
+        60: "8",
+        61: "9",
+        62: "0"
     }   
 
     new_password = ""
 
     for x in range(0, password_length):
-        new_password+=letters[randint(1, 26)]
+        new_password+=letters[randint(1, 62)]
+    
 
     print new_password
 run_password_generator()
