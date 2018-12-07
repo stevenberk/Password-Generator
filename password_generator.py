@@ -5,16 +5,7 @@ def run_password_generator():
     else: 
         print 'invalid entry'
 
-    # are_numbers_allowed = True
 
-    # password_can_have_numbers = int(raw_input('Can your password have numbers? Press 1 for Yes, press 2 for No: '))
-    # if password_can_have_numbers == 1:
-    #     print "numbers okay"
-    #     are_numbers_allowed = True
-    # if password_can_have_numbers == 2:
-    #     print "no numbers"
-    #     are_numbers_allowed = False
-   
     from random import randint
 
     letters = {
