@@ -1,20 +1,24 @@
 keep_running = True
 def run_password_generator():
-    password_length = int(raw_input('How long does your password need to be? Enter a number between 8 and 30: '))
-    if password_length < 7 or password_length > 31:
-        print 'invalid entry'
+    # password_length = int(raw_input('How long does your password need to be? Enter a number between 8 and 30: '))
+    # if password_length < 7 or password_length > 31:
+    #     print 'invalid entry'
+    #     run_password_generator()
+    # else:
+
+    number_of_special_characters = int(raw_input("Welcome to the password generator. You will need answer a few questions about your password requirements. First, How many special characters does your password need? Enter a number: "))
+        
+    number_of_numbers = int(raw_input("How many numerical characters does your password need? Enter a number: "))
+
+    number_of_upper_case_letters = int(raw_input("How many uppercase letters does your password need? Enter a number: "))
+
+    number_of_total_characters = int(raw_input("How many total charactes does your password need? Enter a number greater than %s: " %(number_of_special_characters + number_of_upper_case_letters + number_of_numbers)))
+    if number_of_total_characters < number_of_special_characters + number_of_upper_case_letters + number_of_numbers:
+        print "Invalid entry, please start over"
         run_password_generator()
     else:
 
-        # number_of_lower_case_letters = int(raw_input("How many lowercase letters should there be? Enter a number between 0 and %s: " %(password_length)))
-        # if number_of_lower_case_letters > password_length:
-        #     print "invalid"
 
-        # number_of_upper_case_letters = int(raw_input("How many uppercase letters should there be? Enter a number between 0 and %s: " %(password_length - number_of_lower_case_letters)))
-
-        # number_of_numbers = int(raw_input("How many numerical characters should there be? Enter a number between 0 and %s: " %(password_length - number_of_lower_case_letters - number_of_upper_case_letters)))
-
-        # number_of_special_charactesr = int(raw_input("How many numerical characters should there be? Enter a number between 0 and %s: " %(password_length - number_of_lower_case_letters - number_of_upper_case_letters)))
 
 
 
@@ -150,8 +154,11 @@ def run_password_generator():
 
         new_password = ""
 
-        for x in range(0, password_length):
-            new_password+=all_characters[randint(1, 70)]
+        for x in range(0, number_of_special_characters):
+            new_password += special_characters[randint(1, 10)]
+        
+        for x in range(0, number_of_numbers):
+            new_password += numerical_digits[randint(1, 10)]
     
 
         print "Your password recommendation is:\n" + new_password
