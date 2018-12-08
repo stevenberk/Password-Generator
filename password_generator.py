@@ -12,7 +12,7 @@ def run_password_generator():
 
     number_of_upper_case_letters = int(raw_input("How many uppercase letters does your password need? Enter a number: "))
 
-    number_of_total_characters = int(raw_input("How many total charactes does your password need? Enter a number greater than %s: " %(number_of_special_characters + number_of_upper_case_letters + number_of_numbers)))
+    number_of_total_characters = int(raw_input("So far your password has %s characters. How many total charactes does your password need? Enter a number greater than %s: " %(number_of_special_characters + number_of_upper_case_letters + number_of_numbers, number_of_special_characters + number_of_upper_case_letters + number_of_numbers)))
     if number_of_total_characters < number_of_special_characters + number_of_upper_case_letters + number_of_numbers:
         print "Invalid entry, please start over"
         run_password_generator()
@@ -97,7 +97,7 @@ def run_password_generator():
         70: "^"
         }   
 
-        lower_case_letters = {
+        alphabetical_letters = {
         1: "a",
         2: "b",
         3: "c",
@@ -160,6 +160,12 @@ def run_password_generator():
         for x in range(0, number_of_numbers):
             new_password += numerical_digits[randint(1, 10)]
     
+        for x in range(0, number_of_upper_case_letters):
+            new_password += alphabetical_letters[randint(1, 26)].upper()
+        
+        for x in range(0, (number_of_total_characters - number_of_numbers - number_of_special_characters - number_of_upper_case_letters)):
+            new_password += alphabetical_letters[randint(1, 26)]
+
 
         print "Your password recommendation is:\n" + new_password
         print "Thank you for using the password generator"
