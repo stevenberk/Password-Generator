@@ -1,3 +1,5 @@
+from random import randint
+from random import shuffle 
 keep_running = True
 def run_password_generator():
     # password_length = int(raw_input('How long does your password need to be? Enter a number between 8 and 30: '))
@@ -17,13 +19,7 @@ def run_password_generator():
         print "Invalid entry, please start over"
         run_password_generator()
     else:
-
-
-
-
-
-        from random import randint
-
+        
         all_characters = {
         1: "a",
         2: "b",
@@ -152,20 +148,31 @@ def run_password_generator():
         10: "."
         }
 
-        new_password = ""
+        pre_shuffle_password = ""
 
         for x in range(0, number_of_special_characters):
-            new_password += special_characters[randint(1, 10)]
+            pre_shuffle_password += special_characters[randint(1, 10)]
         
         for x in range(0, number_of_numbers):
-            new_password += numerical_digits[randint(1, 10)]
+            pre_shuffle_password += numerical_digits[randint(1, 10)]
     
         for x in range(0, number_of_upper_case_letters):
-            new_password += alphabetical_letters[randint(1, 26)].upper()
+            pre_shuffle_password += alphabetical_letters[randint(1, 26)].upper()
         
         for x in range(0, (number_of_total_characters - number_of_numbers - number_of_special_characters - number_of_upper_case_letters)):
-            new_password += alphabetical_letters[randint(1, 26)]
+            pre_shuffle_password += alphabetical_letters[randint(1, 26)]
 
+        password_character_list = []
+
+        for x in pre_shuffle_password:
+            password_character_list += x
+        
+        
+        shuffle(password_character_list)  
+       
+        new_password = ""
+        for x in password_character_list:
+            new_password += x
 
         print "Your password recommendation is:\n" + new_password
         print "Thank you for using the password generator"
