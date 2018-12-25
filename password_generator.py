@@ -88,8 +88,7 @@ def run_password_generator():
 
         for x in pre_shuffle_password:
             password_character_list += x
-        
-        
+     
         shuffle(password_character_list)  
        
         new_password = ""
